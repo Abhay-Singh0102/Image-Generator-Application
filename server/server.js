@@ -11,7 +11,10 @@ const app = express()
 
 
 app.use(express.json())
-app.use(cors())
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://personal-task-manager-mern-1.onrender.com' // Aapka frontend URL
+}));
 await connectDB()
 
 app.use('/api/user', userRouter)
