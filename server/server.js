@@ -11,14 +11,11 @@ const app = express()
 
 
 app.use(express.json())
-const cors = require('cors');
-app.use(cors({
-  origin: 'https://personal-task-manager-mern-1.onrender.com' // Aapka frontend URL
-}));
+app.use(cors())
 await connectDB()
 
 app.use('/api/user', userRouter)
 app.use('/api/image', imageRouter)
-app.get('/',(req,res)=>res.send("API Working "))
+app.get('/', (req, res) => res.send("API Working "))
 
-app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
